@@ -44,21 +44,21 @@ export class App extends Component {
     });
   };
 
-  filterContact = e => {
-    this.state({ filter: e.currentTarget.value });
-  };
+  // filterContact = e => {
+  //   this.state({ filter: e.currentTarget.value });
+  // };
 
-  getFilteredContacts = () => {
-    const { filter, contacts } = this.state;
-    const allLetterFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(allLetterFilter)
-    );
-  };
+  // getFilteredContacts = () => {
+  //   const { filter, contacts } = this.state;
+  //   const allLetterFilter = filter.toLowerCase();
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(allLetterFilter)
+  //   );
+  // };
 
   render() {
-    const filteredContacts = this.getFilteredContacts;
-    const { filterContacts, state } = this;
+    // const filteredContacts = this.getFilteredContacts;
+    // const { filterContacts, state } = this;
     return (
       <div>
         <section>
@@ -72,13 +72,16 @@ export class App extends Component {
                 name={contact.name}
                 number={contact.number}
                 handleDeleteContact={this.handleDeleteContact}
-                contacts={filteredContacts}
+                // contacts={filteredContacts}
               />
             );
           })}
         </section>
         <section>
-          <Filter />
+          <Filter
+          // value={state.filter}
+          // onChange={filterContacts}
+          />
         </section>
       </div>
     );

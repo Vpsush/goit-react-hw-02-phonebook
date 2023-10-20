@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './ContactForm.module.css';
 import { Component } from 'react';
-// import Filter from '../Filter/Filter';
+import Filter from '../Filter/Filter';
 
 export default class Form extends Component {
   state = {
@@ -52,8 +52,8 @@ export default class Form extends Component {
                 name="number"
                 onChange={this.handleInputChange}
                 required
-                // pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
-                // title="xxx-xx-xx"
+                pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
+                title="xxx-xx-xx"
                 value={this.state.number}
               />
             </label>
@@ -64,7 +64,7 @@ export default class Form extends Component {
         </div>
         <h2 className={css.title}>Contacts</h2>
         <h3 className={css.title}>Find contacts by number</h3>
-        {/* <Filter /> */}
+        <Filter />
       </div>
     );
   }
