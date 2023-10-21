@@ -1,9 +1,6 @@
-// import { nanoid } from 'nanoid';
-
-import { Component } from 'react';
+import React, { Component } from 'react';
 import Form from './components/ContactForm/ContactForm';
 import ContactList from './components/ContactList/ContactList';
-
 import { nanoid } from 'nanoid';
 import Filter from 'components/Filter/Filter';
 
@@ -16,8 +13,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    // name: '',
-    // number: '',
   };
 
   handleDeleteContact = contactId => {
@@ -44,46 +39,46 @@ export class App extends Component {
     });
   };
 
-  // filterContact = e => {
-  //   this.state({ filter: e.currentTarget.value });
-  // };
+  handleFilterChange = e => {
+    this.setState({
+      filter: e.currentTarget.value,
+    });
+  };
 
-  // getFilteredContacts = () => {
-  //   const { filter, contacts } = this.state;
-  //   const allLetterFilter = filter.toLowerCase();
-  //   return contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(allLetterFilter)
-  //   );
-  // };
+  getFilteredContacts = () => {
+    const { filter, contacts } = this.state;
+    const allLetterFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(allLetterFilter)
+    );
+  };
 
   render() {
-    // const filteredContacts = this.getFilteredContacts;
-    // const { filterContacts, state } = this;
+    const filteredContacts = this.getFilteredContacts();
+
     return (
       <div>
         <section>
           <Form handleAddContact={this.handleAddContact} />
         </section>
         <section>
-          <section>
-            <Filter
-            // value={state.filter}
-            // onChange={filterContacts}
-            />
-          </section>
-          {this.state.contacts.map(contact => {
-            return (
-              <ContactList
-                id={contact.id}
-                name={contact.name}
-                number={contact.number}
-                handleDeleteContact={this.handleDeleteContact}
-                // contacts={filteredContacts}
-              />
-            );
-          })}
+          <Filter
+            value={this.state.filter}
+            onChange={this.handleFilterChange}
+          />
         </section>
+        {filteredContacts.map(contact => (
+          <ContactList
+            key={contact.id}
+            id={contact.id}
+            name={contact.name}
+            number={contact.number}
+            handleDeleteContact={this.handleDeleteContact}
+          />
+        ))}
       </div>
     );
   }
 }
+
+export default App;
