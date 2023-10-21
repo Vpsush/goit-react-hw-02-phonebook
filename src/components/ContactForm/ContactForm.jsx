@@ -1,7 +1,6 @@
 import React from 'react';
 import css from './ContactForm.module.css';
 import { Component } from 'react';
-import Filter from '../Filter/Filter';
 
 export default class Form extends Component {
   state = {
@@ -64,7 +63,6 @@ export default class Form extends Component {
         </div>
         <h2 className={css.title}>Contacts</h2>
         <h3 className={css.title}>Find contacts by number</h3>
-        <Filter />
       </div>
     );
   }

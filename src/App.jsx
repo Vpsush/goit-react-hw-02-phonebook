@@ -65,6 +65,12 @@ export class App extends Component {
           <Form handleAddContact={this.handleAddContact} />
         </section>
         <section>
+          <section>
+            <Filter
+            // value={state.filter}
+            // onChange={filterContacts}
+            />
+          </section>
           {this.state.contacts.map(contact => {
             return (
               <ContactList
@@ -76,12 +82,6 @@ export class App extends Component {
               />
             );
           })}
-        </section>
-        <section>
-          <Filter
-          // value={state.filter}
-          // onChange={filterContacts}
-          />
         </section>
       </div>
     );
