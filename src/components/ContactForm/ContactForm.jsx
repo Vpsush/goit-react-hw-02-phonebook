@@ -41,17 +41,22 @@ export default class Form extends Component {
                 name="name"
                 onChange={this.handleInputChange}
                 required
+                pattern={
+                  "^[a-zA-Zа-яА-Я]+(([' \\-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                }
                 value={this.state.name}
               />
             </label>
             <label>
               <p className={css.name}>Number</p>
               <input
-                type="text"
+                type="tel"
                 name="number"
                 onChange={this.handleInputChange}
                 required
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
+                pattern={
+                  '\\+?\\d{1,4}?[ .\\-\\s]?\\(?\\d{1,3}?\\)?[ .\\-\\s]?\\d{1,4}[ .\\-\\s]?\\d{1,4}[ .\\-\\s]?\\d{1,9}'
+                }
                 title="xxx-xx-xx"
                 value={this.state.number}
               />
