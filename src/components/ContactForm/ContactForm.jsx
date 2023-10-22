@@ -10,16 +10,16 @@ export default class Form extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const name = e.currentTarget.elements.name.value;
-    const number = e.currentTarget.elements.number.value;
+    // const name = e.currentTarget.elements.name.value;
+    // const number = e.currentTarget.elements.number.value;
 
-    const nameData = {
-      name,
-      number,
-    };
-    this.props.handleAddContact(nameData);
-    console.log(nameData);
+    // const nameData = {
+    //   name,
+    //   number,
+    // };
+    this.props.handleAddContact(this.state);
   };
+
   handleInputChange = e => {
     const value = e.target.value;
     const name = e.target.name;

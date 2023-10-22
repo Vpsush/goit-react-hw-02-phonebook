@@ -16,13 +16,13 @@ export class App extends Component {
   };
 
   handleDeleteContact = contactId => {
-    this.setState({
-      contacts: this.state.contacts.filter(contact => contact.id !== contactId),
-    });
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
   };
 
   handleAddContact = nameData => {
-    const hasDuplicate = this.state.contacts.some(
+    const hasDuplicate = this.state.contacts.find(
       contact => contact.name === nameData.name
     );
     if (hasDuplicate) {
@@ -34,9 +34,9 @@ export class App extends Component {
       ...nameData,
       id: nanoid(),
     };
-    this.setState({
-      contacts: [...this.state.contacts, finalContact],
-    });
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, finalContact],
+    }));
   };
 
   handleFilterChange = e => {
